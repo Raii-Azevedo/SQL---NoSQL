@@ -1,0 +1,44 @@
+Exercícios Seção 02
+1) Defina dado:
+    Um dado é uma representação simbólica ou numérica de fatos, conceitos ou instruções. 
+    Pode ser qualquer característica quantitativa ou qualitativa sobre algo.
+
+2) Defina informação:
+    Informação é o significado ou conhecimento obtido a partir da análise, interpretação e organização dos dados. 
+    É o resultado do processamento dos dados para torná-los úteis e significativos.
+
+3) Qual a diferença entre dado e informação?
+    Diferença entre dado e informação: O dado é a matéria-prima bruta, enquanto a informação é o dado 
+    processado e organizado para ser útil e signhatificativo. Em resumo, os dados são elementos isolados, enquanto as informações são os dados que foram processados e contextualizados para fornecer conhecimento ou significado.
+
+4) O que são Bancos de Dados Relacionais?
+    São BD onde pode ou não haver relacionamento entre as tabelas através de chave primária ou estrangeira.
+
+5) O que são Bancos de Dados Não Relacionais?
+    BD não relacionais não estruturado.
+
+6) Qual a diferença entre Banco de Dados Relacional e Banco de Dados Não Relacional?
+    A grande diferença eestá que o NoSQL não utiliza estrutura de tabelas. 
+    Podendo manipular os dados de forma muito mais rápida.
+
+7) Cite 3 exemplos de Banco de Dados Relacionais.
+    Oracle, Postrgres, MySQL, SQLite, TerraData, SQLServer, MariaDB.
+
+8) Cite 3 exemplos de Banco de Dados Não Relacionais.
+    MongoDB, Redis, CouchDB, RavenDB, Cassandra, Oracle Coherence.
+
+9) Defina a Arquitetura Cliente-Servidor;
+    Arquitetura Cliente-Servidor é sobre um servidor WEB que recebe a requisição do user(cliente)
+    e executa a requisição. Ex. Digitar um endereço WWW
+
+10) Cite 3 tipos de serviços que podem ser ofertados utilizando a arquitetura cliente-servidor;
+        - Serviços de compartilhamento de arquivos: O servidor armazena os arquivos e o cliente pode 
+        acessá-los, ler, gravar ou modificar conforme permissões concedidas.
+
+        - Serviços de correio eletrônico (e-mail): O servidor de e-mail armazena e gerencia as 
+        mensagens de e-mail dos usuários, enquanto os clientes se conectam para enviar, receber e 
+        gerenciar suas mensagens.
+    
+        - Serviços de banco de dados: O servidor de banco de dados armazena e gerencia os dados, 
+        enquanto os clientes se conectam para executar consultas, inserir, atualizar ou excluir dados 
+        conforme necessário.
