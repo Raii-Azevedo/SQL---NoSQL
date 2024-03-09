@@ -1,0 +1,88 @@
+===============================================================================================
+DQL - DATA QUERY LANGUAGE
+===============================================================================================
+
+-- Utilizado para recuperar dados de um banco de dados. Comandos comuns 
+de DQL incluem declarações SELECT, que são usadas para buscar dados de 
+uma ou mais tabelas com base em critérios especificados.
+
+-----------------------------------------------------------------------------------------------
+
+CREATE DATABASE secao04;
+
+USE secao04;
+
+CREATE TABLE tipos_produto(                              
+	codigo INT NOT NULL AUTO_INCREMENT,              
+    descricao VARCHAR(30) NOT NULL,                      
+    PRIMARY KEY(codigo)                                  
+);                                                      
+
+CREATE TABLE produtos(
+	codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    descricao VARCHAR(30) NOT NULL,
+    preco DECIMAL(8,2) NOT NULL,
+    codigo_tipo INT NOT NULL,
+    FOREIGN KEY (codigo_tipo) REFERENCES tipos_produto(codigo)
+);
+
+INSERT INTO tipos_produto (descricao) VALUES ('Computadores');
+INSERT INTO tipos_produto (descricao) VALUES ('Impressoras');
+
+SELECT * FROM tipos_produto;
+
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Desktop', 1200, 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Laptop', 1800, 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Impressora Jato Tinta', 300, 2);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Impressora Laser', 500, 2);
+
+SELECT * from produtos;
+
+-- ALIAS - APELIDO para a tabela. Usado para multitabelas:
+SElECT p.codigo AS cod, p.descricao AS descri, p.preco AS pre, p.codigo_tipo as ctp FROM produtos AS p;
+
+ou
+
+SElECT p.codigo AS 'Código', p.descricao AS 'Descrição', p.preco AS 'Preço', p.codigo_tipo as 'Tipo Produto' FROM produtos AS p;
+
+
+==============================================================================================
+DML - DATA MANIPULATION LANGUAGE
+==============================================================================================
+
+-- Utilizado para manipular dados dentro de um banco de dados. Comandos 
+comuns de DML incluem INSERT (para adicionar novos registros), UPDATE 
+(para modificar registros existentes), DELETE (para remover registros) 
+e MERGE (para realizar operações de inserção ou atualização com base em 
+uma condição).
+
+----------------------------------------------------------------------------------------------
+
+
+
+==============================================================================================
+DDL - DATA DEFINITION LANGUAGE
+==============================================================================================
+
+-- Utilizado para definir e gerenciar a estrutura de objetos de banco de 
+dados. Comandos comuns de DDL incluem CREATE (para criar tabelas, índices 
+ou visualizações), ALTER (para modificar a estrutura de objetos existentes)
+e DROP (para excluir tabelas, índices ou visualizações).
+
+----------------------------------------------------------------------------------------------
+
+
+
+
+==============================================================================================
+DTL - DATA TRANSITION LANGUAGE
+==============================================================================================
+
+-- São comandos dentro do SQL que tem a finalidade de fazer transações 
+de dados (Em alguns lugares é possível encontrar esta sigla como TCL). 
+Ex: BEGIN, COMMIT, TRANSACTION e ROLLBACK
+
+----------------------------------------------------------------------------------------------
+
+
+

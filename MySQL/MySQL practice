@@ -1,0 +1,19 @@
+MY SQL
+
+-- Selecionar um BD:
+USE secao03;
+
+-- Selecionar uma tabela:
+SELECT * FROM tipos_produto;
+
+-- Inserir dados:
+
+USE secao03;
+
+SELECT * FROM pacientes;
+
+ALTER TABLE pacientes MODIFY COLUMN bairro VARCHAR(40) DEFAULT 'Unknown';
+
+
+INSERT INTO pacientes (nome, endereco, bairro, cidade, estado, cep, data_nascimento) 
+VALUES ('Pedro Alcântara', 'Avenida da Praia','Praia de Itaparica','Vila Velha','ES', 29102085, '1964-10-14');
