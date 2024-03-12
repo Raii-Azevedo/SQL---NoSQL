@@ -1,0 +1,163 @@
+===============================================================================================
+				DQL - DATA QUERY LANGUAGE
+===============================================================================================
+
+-- Utilizado para recuperar dados de um banco de dados. Comandos comuns de DQL incluem 
+declarações SELECT, que são usadas para buscar dados de uma ou mais tabelas com base em critérios
+especificados.
+
+-----------------------------------------------------------------------------------------------
+
+CREATE DATABASE secao04;
+
+USE secao04;
+
+CREATE TABLE tipos_produto(                              
+	codigo INT NOT NULL AUTO_INCREMENT,              
+    descricao VARCHAR(30) NOT NULL,                      
+    PRIMARY KEY(codigo)                                  
+);                                                      
+
+CREATE TABLE produtos(
+	codigo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    descricao VARCHAR(30) NOT NULL,
+    preco DECIMAL(8,2) NOT NULL,
+    codigo_tipo INT NOT NULL,
+    FOREIGN KEY (codigo_tipo) REFERENCES tipos_produto(codigo)
+);
+
+INSERT INTO tipos_produto (descricao) VALUES ('Computadores');
+INSERT INTO tipos_produto (descricao) VALUES ('Impressoras');
+
+SELECT * FROM tipos_produto;
+
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Desktop', 1200, 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Laptop', 1800, 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Impressora Jato Tinta', 300, 2);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Impressora Laser', 500, 2);
+
+SELECT * from produtos;
+
+
+-- ALIAS - APELIDO para a tabela. Usado para multitabelas:
+SElECT p.codigo AS cod, p.descricao AS descri, p.preco AS pre, p.codigo_tipo AS ctp FROM produtos AS p;
+
+ou
+
+SElECT p.codigo AS 'Código', p.descricao AS 'Descrição', p.preco AS 'Preço', p.codigo_tipo as 'Tipo Produto' FROM produtos AS p;
+
+
+----------------------------------------------------------------------------------------------
+
+==============================================================================================
+			DML - DATA MANIPULATION LANGUAGE
+==============================================================================================
+
+-- Utilizado para manipular dados dentro de um banco de dados. Comandos  comuns de DML incluem 
+INSERT (para adicionar novos registros), UPDATE (para modificar registros existentes), DELETE 
+(para remover registros) e MERGE (para realizar operações de inserção ou atualização com base 
+em uma condição).
+
+----------------------------------------------------------------------------------------------
+
+-- Insert
+
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Notebook', '1200', 1);
+INSERT INTO produtos (descricao, preco, codigo_tipo) VALUES ('Macbook Pro', '7200', 1);
+INSERT INTO produtos VALUES (NULL, 'Notbook Acer Pro', '3300', 1);
+
+INSERT INTO tipos_produto (descricao) VALUES ('Apple');
+
+
+-- Update
+UPDATE produtos SET codigo_tipo = 3 WHERE codigo = 6;
+UPDATE produtos SET descricao = 'Impressora Laser', preco = '700' WHERE  codigo = 4;
+
+
+-- Delete
+DELETE FROM produtos WHERE codigo = 4;
+
+
+
+--> NUNCA ESQUECER DE FILTRAR O REGISTRO COM 'WHERE'
+
+----------------------------------------------------------------------------------------------
+
+==============================================================================================
+			DDL - DATA DEFINITION LANGUAGE
+==============================================================================================
+
+-- Utilizado para definir e gerenciar a estrutura de objetos de banco de dados. Comandos comuns 
+de DDL incluem CREATE (para criar tabelas, índices ou visualizações), ALTER (para modificar a 
+estrutura de objetos existentes) e DROP (para excluir tabelas, índices ou visualizações).
+
+----------------------------------------------------------------------------------------------
+
+-- Create
+
+CREATE DATABASE meudb;
+
+USE meudb;
+
+CREATE TABLE pessoas(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
+
+INSERT INTO pessoas (nome) VALUES ('Felicity Jones');
+
+SELECT * FROM pessoas;
+
+
+-- Alter
+
+ALTER TABLE pessoas ADD ano_nascimento INT;
+ALTER TABLE pessoas ADD mes_nascimento INT NOT NULL;
+
+
+--> Como já havia os dados da FELICITY JONES no BD, ao adicionar o mês como NOT NULL 
+ele receberia automáticamente um valor ZERO. QUe é um erro de adminstração de Banco de Dados.
+
+UPDATE pessoas SET mes_nascimento = 6 WHERE id = 1;
+
+
+-- Delete
+DROP TABLE pessoas;
+DROP DATABASE meudb;
+
+----------------------------------------------------------------------------------------------
+
+==============================================================================================
+			DCL - DATA CONTROL LANGUAGE
+==============================================================================================
+
+É uma parte do SQL que lida com permissões de acesso, segurança e controle de dados em um banco de dados.
+As principais instruções DCL no SQL são:
+
+    GRANT: Permite que um usuário conceda permissões específicas a outros usuários para acessar e 
+    manipular objetos no banco de dados. Por exemplo, GRANT SELECT ON tabela TO usuario; concede 
+    permissão de leitura na tabela para um usuário específico.
+
+    REVOKE: Permite que um usuário revogue permissões anteriormente concedidas a outros usuários. 
+    Por exemplo, REVOKE SELECT ON tabela FROM usuario; revoga a permissão de leitura na tabela de 
+    um usuário específico.
+
+----------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------
+
+==============================================================================================
+			DTL - DATA TRANSITION LANGUAGE
+==============================================================================================
+
+-- São comandos dentro do SQL que tem a finalidade de fazer transações de dados (Em alguns 
+lugares é possível encontrar esta sigla como TCL). 
+
+Ex: BEGIN, COMMIT, TRANSACTION e ROLLBACK
+
+----------------------------------------------------------------------------------------------
+
+
+
