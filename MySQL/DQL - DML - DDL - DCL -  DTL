@@ -144,7 +144,15 @@ As principais instruções DCL no SQL são:
 
 ----------------------------------------------------------------------------------------------
 
+-- Para atualizar as configurações de privilégios
 
+FLUSH PRIVILEGES;
+
+No menu "Users and Privileges" dá para setar os privilégios de cada usuário.
+
+-- Para dar permissões ao usuário
+
+GRANT ALL PRIVILEGES ON *.* TO 'geek'@'localhost';
 
 ----------------------------------------------------------------------------------------------
 
@@ -159,5 +167,27 @@ Ex: BEGIN, COMMIT, TRANSACTION e ROLLBACK
 
 ----------------------------------------------------------------------------------------------
 
+-- Transaction
 
+START TRANSACTION;
+	INSERT INTO tipos_produto (descricao) VALUES ('Acessórios');
+	INSERT INTO tipos_produto (descricao) VALUES ('Equipamentos');
+    
+-- Commit
+COMMIT;
+
+SELECT * FROM tipos_produto;
+
+-- Rollback
+ROLLBACK;
+
+OBS -> O Comando de volta ROLLBACK só funciona se o COMMIT ainda não tiver sido acionado.
+Quando o ROLLBACK é executado sem fazer o COMMIT o ID das transações é descartado.
+
+-- Ao indicar o CÓDIGO que por padrão da criação é AUTO INCREMENT, pode preencher os vazios.
+
+	INSERT INTO tipos_produto (codigo, descricao) VALUES (6, 'Diversos');
+	UPDATE tipos_produto SET codigo = 10 WHERE codigo = 77;
+	
+OBS: Mesmo consertando o código 77, quando fizer o INSERT de outro dados com AUTO INCREMENT ele vai adquirir o código 78.
 
