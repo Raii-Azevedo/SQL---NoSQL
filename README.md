@@ -1,5 +1,3 @@
-![FoodFinder](https://github.com/Raii-Azevedo/FoodFinder/blob/master/Food-Finder-Google-Chrome-2022-0.gif)
- 
 ## Bancos de Dados (SGBD)
  
 - Evolução de estudo de Bancos de Dados SQL e NoSQL.
@@ -20,8 +18,7 @@
  
 ## Links
  
-  - Link of deployed application: (Render)
-  - Repository: https://github.com/Raii-Azevedo/FoodFinder
+  - Repository: https://github.com/Raii-Azevedo/SQL---NoSQL
   - Deploy: 
  
  
