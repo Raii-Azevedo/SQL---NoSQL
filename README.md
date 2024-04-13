@@ -5,11 +5,12 @@
 
 
 ## Tópicos
- - [SQL]()
- - [MySQL]()
- - [PostgreSQL]()
+ - [Modelagem de Dados](https://github.com/Raii-Azevedo/SQL---NoSQL/tree/master/MODELAGEM%20DE%20DADOS)
+ - [SQL](https://github.com/Raii-Azevedo/SQL---NoSQL/tree/master/SQL)
+ - [MySQL](https://github.com/Raii-Azevedo/SQL---NoSQL/tree/master/MySQL)
+ - [PostgreSQL](https://github.com/Raii-Azevedo/SQL---NoSQL/tree/master/POSTGRESQL)
  - [SQLite]()
- - [MongoDB]()
+ - [MongoDB](https://github.com/Raii-Azevedo/SQL---NoSQL/tree/master/MONGODB)
  - [Redis]()
  - [CouchDB]()
  - [Firebase]()
